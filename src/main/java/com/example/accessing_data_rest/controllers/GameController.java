@@ -3,6 +3,7 @@ package com.example.accessing_data_rest.controllers;
 import com.example.accessing_data_rest.model.Game;
 
 import com.example.accessing_data_rest.services.GameService;
+import com.example.accessing_data_rest.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,11 +15,18 @@ public class GameController {
 
     @Autowired
     private GameService gameService;
+    @Autowired
+    private UserService userService;
 
-    // TODO Assignment 7b: add a method with @GetMapping, which obtains
+    // DONE Assignment 7b: add a method with @GetMapping, which obtains
     //      a list of all games from the games repository  (via the service
     //      getGames) and returns this list (in JSON representation).
     //      See class UserController for inspiration and class GameService
+
+    @GetMapping(value = "", produces="application/json")
+    public List<Game> allGames() {
+        return userService.getGames();
+    }
 
     // TODO Assignment 7b: Create a post method in this controller for creating a new game
     //      this method should call the corresponding service for creating a game
