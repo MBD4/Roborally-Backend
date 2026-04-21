@@ -14,11 +14,11 @@ public class UserService {
     private UserRepository userRepository;
 
     public List<User> searchUsers(String name) {
-        // TODO Assignment 7b: obtain a list of users with the given name
+        // DONE Assignment 7b: obtain a list of users with the given name
         //      from the userRepository and return the result (instead
         //      the empty list below).
 
-        return List.of();
+        return userRepository.findByName(name);
     }
 
 }
