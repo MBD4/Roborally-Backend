@@ -16,8 +16,6 @@ public class UserService {
 
     @Autowired
     private UserRepository userRepository;
-    @Autowired
-    private GameRepository gameRepository;
 
     public List<User> searchUsers(String name) {
         // DONE Assignment 7b: obtain a list of users with the given name
@@ -25,13 +23,5 @@ public class UserService {
         //      the empty list below).
 
         return userRepository.findByName(name);
-    }
-
-    public List<Game> getGames() {
-        List<Game> result = new ArrayList<>();
-
-        gameRepository.findAll().forEach(result::add);
-
-        return result;
     }
 }

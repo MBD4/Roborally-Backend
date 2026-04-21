@@ -15,8 +15,6 @@ public class GameController {
 
     @Autowired
     private GameService gameService;
-    @Autowired
-    private UserService userService;
 
     // DONE Assignment 7b: add a method with @GetMapping, which obtains
     //      a list of all games from the games repository  (via the service
@@ -25,11 +23,16 @@ public class GameController {
 
     @GetMapping(value = "", produces="application/json")
     public List<Game> allGames() {
-        return userService.getGames();
+        return gameService.getGames();
     }
 
-    // TODO Assignment 7b: Create a post method in this controller for creating a new game
+    // DONE Assignment 7b: Create a post method in this controller for creating a new game
     //      this method should call the corresponding service for creating a game
+
+    @PostMapping(value = "", consumes = "application/json", produces = "application/json")
+    public Game postGame(@RequestBody Game game) {
+        return gameService.createGame(game);
+    }
 
     // TODO Assignment 7d: Create a method and @RequestMpping for deleting a game
 
