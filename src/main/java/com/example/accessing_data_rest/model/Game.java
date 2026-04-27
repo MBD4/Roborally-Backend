@@ -38,7 +38,7 @@ public class Game {
 
     @ManyToOne
     @JoinColumn
-    private User user;
+    private User owner;
 
     public long getUid() {
         return uid;
@@ -81,11 +81,11 @@ public class Game {
         this.players = players;
     }
 
-    public User getUser() {
-        return user;
+    public User getOwner() {
+        return owner;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setOwner(User user) {
+        this.owner = user;
     }
 }

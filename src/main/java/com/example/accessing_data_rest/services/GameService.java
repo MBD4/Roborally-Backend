@@ -35,7 +35,7 @@ public class GameService {
     @Transactional
     public Game createGame(Game game) {
         gameRepository.save(game);
-        User owner = game.getUser();
+        User owner = game.getOwner();
         if (owner != null) {
             Player player = new Player();
             player.setGame(game);
