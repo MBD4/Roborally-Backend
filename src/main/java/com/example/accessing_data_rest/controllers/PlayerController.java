@@ -11,12 +11,12 @@ import java.util.List;
 @RequestMapping("roborally/player")
 public class PlayerController {
 
-    @Autowired
-    private PlayerService playerService;
-
-    // TODO Assignment 7c: For adding players to a game, you will need to add a @PostMapping here
+    // Done Assignment 7c: For adding players to a game, you will need to add a @PostMapping here
     //      and you will need to add corresponding service class PlayerService in package services,
     //      and implement the respective logic there.
+
+    @Autowired
+    private PlayerService playerService;
 
     @PostMapping(value = "", consumes = "application/json", produces = "application/json")
     public Player createPlayer(@RequestBody Player player) {

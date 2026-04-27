@@ -21,4 +21,9 @@ public class UserController {
         return userService.searchUsers(name);
     }
 
+    @PostMapping(value = "", consumes = "application/json", produces = "application/json")
+    public User createUser(@RequestBody User user) {
+        return userService.createUser(user);
+    }
+
 }
