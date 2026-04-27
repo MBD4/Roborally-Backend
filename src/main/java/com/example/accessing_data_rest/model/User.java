@@ -19,6 +19,7 @@ public class User {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long uid;
 
+    @Column
     private String name;
 
     // DONE Assignment 7a: this class needs to be extended with references to Player and
@@ -26,6 +27,9 @@ public class User {
     //      and the other way round.
     @OneToMany(mappedBy="user")
     private List<Player> players;
+
+    @OneToMany(mappedBy = "user")
+    private List<Game> games;
 
     public long getUid() {
         return uid;
@@ -54,4 +58,11 @@ public class User {
         this.players = players;
     }
 
+    public List<Game> getGame() {
+        return games;
+    }
+
+    public void setGame(List<Game> game) {
+        this.games = game;
+    }
 }

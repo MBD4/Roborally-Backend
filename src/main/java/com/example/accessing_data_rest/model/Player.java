@@ -20,6 +20,7 @@ public class Player {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long uid;
 
+    @Column
     private String name;
 
     @ManyToOne

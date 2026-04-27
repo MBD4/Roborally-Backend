@@ -18,10 +18,13 @@ public class Game {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long uid;
 
+    @Column
     private String name;
 
+    @Column
     private int minPlayers;
 
+    @Column
     private int maxPlayers;
 
     // TODO There could be more attributes here, ie.
@@ -32,6 +35,10 @@ public class Game {
 
     @OneToMany(mappedBy="game")
     private List<Player> players;
+
+    @ManyToOne
+    @JoinColumn
+    private User user;
 
     public long getUid() {
         return uid;
@@ -74,4 +81,11 @@ public class Game {
         this.players = players;
     }
 
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 }
