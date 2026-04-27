@@ -20,7 +20,7 @@ public class PlayerController {
 
     @PostMapping(value = "", consumes = "application/json", produces = "application/json")
     public Player createPlayer(@RequestBody Player player) {
-
+        return playerService.createPlayer(player);
     }
 
 
