@@ -16,4 +16,6 @@ public interface GameRepository extends PagingAndSortingRepository<Game, Long>, 
 
     List<Game> findByName(@Param("name") String name);
 
+    Game findByUid(@Param("uid") long uid);
+
 }
