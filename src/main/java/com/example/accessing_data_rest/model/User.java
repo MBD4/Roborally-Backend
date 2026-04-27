@@ -28,7 +28,7 @@ public class User {
     @OneToMany(mappedBy="user")
     private List<Player> players;
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "owner")
     private List<Game> games;
 
     public long getUid() {
@@ -58,11 +58,11 @@ public class User {
         this.players = players;
     }
 
-    public List<Game> getGame() {
+    public List<Game> getGames() {
         return games;
     }
 
-    public void setGame(List<Game> game) {
-        this.games = game;
+    public void setGames(List<Game> games) {
+        this.games = games;
     }
 }
