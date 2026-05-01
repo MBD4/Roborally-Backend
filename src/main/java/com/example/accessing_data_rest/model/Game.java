@@ -43,6 +43,8 @@ public class Game {
     @JoinColumn
     private User owner;
 
+    private GameState state = GameState.SIGNUP;
+
     public long getUid() {
         return uid;
     }
@@ -90,5 +92,13 @@ public class Game {
 
     public void setOwner(User user) {
         this.owner = user;
+    }
+
+    public GameState getState() {
+        return state;
+    }
+
+    public void setState(GameState state) {
+        this.state = state;
     }
 }
