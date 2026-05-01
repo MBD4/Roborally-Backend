@@ -5,6 +5,7 @@ import com.example.accessing_data_rest.model.Game;
 import com.example.accessing_data_rest.services.GameService;
 import com.example.accessing_data_rest.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -39,7 +40,11 @@ public class GameController {
     public void deleteGame(@PathVariable("id") long gameUid) {
         gameService.deleteGame(gameUid);
     }
-    
+
+    @PatchMapping(value = "/{id}")
+    public Game updateGameState(@PathVariable("id") long gameUid, @RequestBody Game gameStub) {
+
+    }
 
     // TODO Assignment 7c-7e: At some point you might want to implement an
     //      endpoint for obtaining open games (open for joining) only or

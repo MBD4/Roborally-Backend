@@ -54,4 +54,16 @@ public class GameService {
         gameRepository.deleteById(id);
     }
 
+    @Transactional
+    public Game updateGameState(Game game) {
+        Game existingGame = gameRepository.findByUid(game.getUid());
+
+        if (existingGame != null && game.getState() != null) {
+            existingGame.setState(game.getState());
+            gameRepository.save(existingGame);
+        }
+
+        return existingGame;
+    }
+
 }
