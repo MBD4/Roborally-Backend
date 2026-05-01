@@ -57,4 +57,13 @@ public class PlayerService {
         return playerRepository.findByUid(player.getUid());
 
     }
+
+    @Transactional
+    public  void deletePlayer(long id) {
+        Player player = playerRepository.findById(id).orElseThrow();
+        if (player.getGame().getOwner().getUid() == player.getUser().getUid()) {
+            throw new RuntimeException("The owner of the game cannot leave the game.");
+        }
+        playerRepository.deleteById(id);
+    }
 }
