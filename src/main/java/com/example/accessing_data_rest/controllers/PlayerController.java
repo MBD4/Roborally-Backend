@@ -23,7 +23,7 @@ public class PlayerController {
         return playerService.createPlayer(player);
     }
 
-    // TODO Assignment 7d for a player (user) leaving the game, you need to have a delete method for
+    // DONE Assignment 7d for a player (user) leaving the game, you need to have a delete method for
     //      players here.
     // endpoint for deleting a player(a user leaving a game)
     @DeleteMapping(value = "/{id}")
