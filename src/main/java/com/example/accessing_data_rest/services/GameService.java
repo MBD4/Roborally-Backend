@@ -32,6 +32,8 @@ public class GameService {
     }
 
     // DONE Assignment 7b: create a game in the repository and return the result
+    // DONE Assignment 7c: make sure that the game is created with the owner
+    //      who must be in the repository already, and also with the owner as first player
     @Transactional
     public Game createGame(Game game) {
         gameRepository.save(game);
@@ -46,7 +48,10 @@ public class GameService {
         Game result = gameRepository.findByUid(game.getUid());
         return result;
     }
-    // DONE Assignment 7c: make sure that the game is created with the owner
-    //      who must be in the repository already, and also with the owner as first player
+
+    @Transactional
+    public void deleteGame(long id) {
+        gameRepository.deleteById(id);
+    }
 
 }

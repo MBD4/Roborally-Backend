@@ -3,6 +3,8 @@ package com.example.accessing_data_rest.model;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.*;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import java.util.List;
 
@@ -34,6 +36,7 @@ public class Game {
     //      See analogous classes in client.
 
     @OneToMany(mappedBy="game")
+    @OnDelete(action = OnDeleteAction.CASCADE)
     private List<Player> players;
 
     @ManyToOne
