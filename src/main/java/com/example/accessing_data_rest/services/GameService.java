@@ -55,8 +55,8 @@ public class GameService {
     }
 
     @Transactional
-    public Game updateGameState(Game game) {
-        Game existingGame = gameRepository.findByUid(game.getUid());
+    public Game updateGameState(long id, Game game) {
+        Game existingGame = gameRepository.findByUid(id);
 
         if (existingGame != null && game.getState() != null) {
             existingGame.setState(game.getState());

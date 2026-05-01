@@ -43,7 +43,7 @@ public class GameController {
 
     @PatchMapping(value = "/{id}")
     public Game updateGameState(@PathVariable("id") long gameUid, @RequestBody Game gameStub) {
-
+        return gameService.updateGameState(gameUid, gameStub);
     }
 
     // TODO Assignment 7c-7e: At some point you might want to implement an
