@@ -35,7 +35,7 @@ public class GameController {
         return gameService.createGame(game);
     }
 
-    // DONE Assignment 7d: Create a method and @RequestMpping for deleting a game
+    // DONE Assignment 7d: Create a method and @RequestMpping for deleting a game.
     @DeleteMapping(value = "/{id}")
     public void deleteGame(@PathVariable("id") long gameUid) {
         gameService.deleteGame(gameUid);
