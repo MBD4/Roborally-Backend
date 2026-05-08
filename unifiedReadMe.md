@@ -5,7 +5,7 @@ First off, we would like to preface this by stating that we tried to follow the 
 
 Something we discussed as well—since we now have a backend and a frontend—is where to perform our checks. Do we request the data we need from the server and perform them client-side, or do we act like a production environment where you keep many of the checks in the backend? We decided on the path of least resistance: if we needed data from the server, we ran the check server-side; if we could make do with checking client-side, we did that.
 
-We experimented with using JPA queries. They were very useful in our project, specifically for our `createPlayer()` function amongst other places. Even though they feel a bit "cursed" to use, we still found them convenient.
+We experimented with using JPQL. They were very useful in our project, specifically for our `createPlayer()` method in PlayerService, being able to call the custom query from the PlayerRepository class. We actually added some JPQL to all Repository classes, even though they feel a bit "cursed" to use, we still found them convenient.
 
 ---
 
