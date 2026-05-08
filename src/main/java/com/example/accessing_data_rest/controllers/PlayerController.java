@@ -11,9 +11,7 @@ import java.util.List;
 @RequestMapping("roborally/player")
 public class PlayerController {
 
-    // Done Assignment 7c: For adding players to a game, you will need to add a @PostMapping here
-    //      and you will need to add corresponding service class PlayerService in package services,
-    //      and implement the respective logic there.
+
 
     @Autowired
     private PlayerService playerService;
@@ -27,10 +25,6 @@ public class PlayerController {
     public Player createPlayer(@RequestBody Player player) {
         return playerService.createPlayer(player);
     }
-
-    // DONE Assignment 7d for a player (user) leaving the game, you need to have a delete method for
-    //      players here.
-    // endpoint for deleting a player(a user leaving a game)
 
     /**
      * Deletes a player from a game.

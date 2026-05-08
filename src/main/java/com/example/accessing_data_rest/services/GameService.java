@@ -22,8 +22,6 @@ public class GameService {
     @Autowired
     private PlayerRepository playerRepository;
 
-    // DONE Assignment 7b: Implement the method for obtaining all games from the
-    //      GameRepository (using finaAll) and returning it as a list
     /**
      * Retrieves all games from the repository.
      * @return a list containing all stored games
@@ -45,9 +43,6 @@ public class GameService {
         return gameRepository.findByState(state);
     }
 
-    // DONE Assignment 7b: create a game in the repository and return the result
-    // DONE Assignment 7c: make sure that the game is created with the owner
-    //      who must be in the repository already, and also with the owner as first player
 
     /**
      * Creates a new game and stores it in the repository.

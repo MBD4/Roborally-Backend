@@ -22,9 +22,7 @@ public class User {
     @Column(unique = true)
     private String name;
 
-    // DONE Assignment 7a: this class needs to be extended with references to Player and
-    //      the other way round (similar to the reference from Game to Player
-    //      and the other way round.
+
     @OneToMany(mappedBy="user")
     private List<Player> players;
 
@@ -47,9 +45,6 @@ public class User {
         this.name = name;
     }
 
-    // DONE Assignment 7a: this class needs to be extended with references to Player and
-    //      the other way round (similar to the reference from Game to Player
-    //      and the other way round (corresponding getter and setter).
     public List<Player> getPlayers() {
         return players;
     }

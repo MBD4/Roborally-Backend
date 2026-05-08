@@ -25,7 +25,6 @@ public class Player {
     @JoinColumn
     private Game game;
 
-    // DONE Assignment 7a: Add the reference to the user
     @ManyToOne
     @JoinColumn
     private User user;
@@ -54,8 +53,7 @@ public class Player {
         this.game = game;
     }
 
-    // DONE Assignment 7a: added the reference to the user
-    //      (corresponding getter and setter).
+
     public User getUser() {
         return user;
     }
