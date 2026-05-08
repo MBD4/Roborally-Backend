@@ -14,6 +14,7 @@ public interface PlayerRepository extends PagingAndSortingRepository<Player, Lon
 
     List<Player> findByName(@Param("name") String name);
 
+    // method to query players based on their id
     Player findByUid(@Param("uid") long uid);
 
 }

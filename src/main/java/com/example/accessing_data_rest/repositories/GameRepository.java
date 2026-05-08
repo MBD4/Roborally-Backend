@@ -3,6 +3,7 @@ package com.example.accessing_data_rest.repositories;
 import java.util.List;
 
 import com.example.accessing_data_rest.model.Game;
+import com.example.accessing_data_rest.model.GameState;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.repository.query.Param;
@@ -16,6 +17,10 @@ public interface GameRepository extends PagingAndSortingRepository<Game, Long>, 
 
     List<Game> findByName(@Param("name") String name);
 
+    // method to query games based on their id
     Game findByUid(@Param("uid") long uid);
+
+    // method to query games based on their GameState
+    List<Game> findByState(@Param("state") GameState state);
 
 }

@@ -1,6 +1,7 @@
 package com.example.accessing_data_rest.services;
 
 import com.example.accessing_data_rest.model.Game;
+import com.example.accessing_data_rest.model.GameState;
 import com.example.accessing_data_rest.model.Player;
 import com.example.accessing_data_rest.model.User;
 import com.example.accessing_data_rest.repositories.GameRepository;
@@ -33,6 +34,15 @@ public class GameService {
         gameRepository.findAll().forEach(result::add);
 
         return result;
+    }
+
+    /**
+     * Retrieves games by their specific state.
+     * @param state The state to filter games by
+     * @return a list containing matching games
+     */
+    public List<Game> getGamesByState(GameState state) {
+        return gameRepository.findByState(state);
     }
 
     // DONE Assignment 7b: create a game in the repository and return the result

@@ -2,6 +2,7 @@ package com.example.accessing_data_rest.controllers;
 
 import com.example.accessing_data_rest.model.Game;
 
+import com.example.accessing_data_rest.model.GameState;
 import com.example.accessing_data_rest.services.GameService;
 import com.example.accessing_data_rest.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -66,8 +67,26 @@ public class GameController {
         return gameService.updateGameState(gameUid, gameStub);
     }
 
-    // TODO Assignment 7c-7e: At some point you might want to implement an
+    // DONE Assignment 7c-7e: At some point you might want to implement an
     //      endpoint for obtaining open games (open for joining) only or
     //      games that have started.
+
+    /**
+     * Retrieves all open games available for joining.
+     * @return a list of games in SIGNUP state
+     */
+    @GetMapping(value = "/open", produces="application/json")
+    public List<Game> openGames() {
+        return gameService.getGamesByState(GameState.SIGNUP);
+    }
+
+    /**
+     * Retrieves all started games.
+     * @return a list of games in ACTIVE state
+     */
+    @GetMapping(value = "/started", produces="application/json")
+    public List<Game> startedGames() {
+        return gameService.getGamesByState(GameState.ACTIVE);
+    }
 
 }
