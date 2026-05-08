@@ -18,6 +18,11 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
+    /**
+     * Searches for users by name.
+     * @param name the name to search for
+     * @return a list of users matching the given name
+     */
     public List<User> searchUsers(String name) {
         // DONE Assignment 7b: obtain a list of users with the given name
         //      from the userRepository and return the result (instead
@@ -26,7 +31,12 @@ public class UserService {
         return userRepository.findByName(name);
     }
 
-    //uniqueness is checked automatically since i added @Column(unique=true) on the name attribute of the User class.
+    /**
+     * Creates a new user.
+     * @param user the user to create
+     * @return the persisted user instance
+     */
+    //uniqueness is checked automatically since I added @Column(unique=true) on the name attribute of the User class.
     @Transactional
     public User createUser(User user) {
         userRepository.save(user);

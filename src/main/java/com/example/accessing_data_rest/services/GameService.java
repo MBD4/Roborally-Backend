@@ -23,6 +23,10 @@ public class GameService {
 
     // DONE Assignment 7b: Implement the method for obtaining all games from the
     //      GameRepository (using finaAll) and returning it as a list
+    /**
+     * Retrieves all games from the repository.
+     * @return a list containing all stored games
+     */
     public List<Game> getGames() {
         List<Game> result = new ArrayList<>();
 
@@ -34,6 +38,12 @@ public class GameService {
     // DONE Assignment 7b: create a game in the repository and return the result
     // DONE Assignment 7c: make sure that the game is created with the owner
     //      who must be in the repository already, and also with the owner as first player
+
+    /**
+     * Creates a new game and stores it in the repository.
+     * @param game the game to create
+     * @return the persisted game instance
+     */
     @Transactional
     public Game createGame(Game game) {
         gameRepository.save(game);
@@ -49,11 +59,21 @@ public class GameService {
         return result;
     }
 
+    /**
+     * Deletes a game from the repository by its id.
+     * @param id the id of the game to delete
+     */
     @Transactional
     public void deleteGame(long id) {
         gameRepository.deleteById(id);
     }
 
+    /**
+     * Updates the state of an existing game.
+     * @param id the id of the game to update
+     * @param game the game data containing the new state
+     * @return the updated game, or null if no matching game was found
+     */
     @Transactional
     public Game updateGameState(long id, Game game) {
         Game existingGame = gameRepository.findByUid(id);

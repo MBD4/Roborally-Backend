@@ -32,6 +32,12 @@ public class PlayerService {
         }
     }
 
+    /**
+     * Creates a new player in a game with validation.
+     * @param player the player to create
+     * @return the persisted player instance
+     * @throws CouldNotCreatePlayerException if user or game doesn't exist, max players reached, or player already joined
+     */
     @Transactional
     public Player createPlayer(Player player) {
         User user = userRepository.findByUid(player.getUser().getUid());
@@ -58,6 +64,11 @@ public class PlayerService {
 
     }
 
+    /**
+     * Deletes a player from a game.
+     * @param id the id of the player to delete
+     * @throws RuntimeException if the player is the owner of the game
+     */
     @Transactional
     public  void deletePlayer(long id) {
         Player player = playerRepository.findById(id).orElseThrow();

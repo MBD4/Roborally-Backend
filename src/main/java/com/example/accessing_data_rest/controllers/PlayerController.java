@@ -18,6 +18,11 @@ public class PlayerController {
     @Autowired
     private PlayerService playerService;
 
+    /**
+     * Creates a new player in a game.
+     * @param player the player to create
+     * @return the persisted player instance
+     */
     @PostMapping(value = "", consumes = "application/json", produces = "application/json")
     public Player createPlayer(@RequestBody Player player) {
         return playerService.createPlayer(player);
@@ -26,6 +31,11 @@ public class PlayerController {
     // DONE Assignment 7d for a player (user) leaving the game, you need to have a delete method for
     //      players here.
     // endpoint for deleting a player(a user leaving a game)
+
+    /**
+     * Deletes a player from a game.
+     * @param uid the id of the player to delete
+     */
     @DeleteMapping(value = "/{id}")
     public void deletePlayer(@PathVariable("id") long uid) {
         playerService.deletePlayer(uid);
